@@ -1,4 +1,4 @@
-import userModel from "../models/UserModel.js";// Ensure this import is correct
+import userModel from "../models/UserModel.js";
 import IncomeModel from "../models/IncomeModel.js";
 import ExpenseModel from "../models/ExpenseModel.js";
 import bcrypt from "bcrypt";
@@ -107,7 +107,7 @@ const login = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     try {
-        const userId = req.userId; // Extract user ID from request (assume authentication middleware)
+        const userId = req.userId; 
 
         // Ensure userId is a valid ObjectId
         if (!mongoose.Types.ObjectId.isValid(userId)) {
@@ -115,7 +115,7 @@ const deleteUser = async (req, res) => {
         }
 
         // Delete user and related data (e.g., incomes and expenses)
-        const user = await userModel.findByIdAndDelete(userId); // Pass the userId directly
+        const user = await userModel.findByIdAndDelete(userId);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }

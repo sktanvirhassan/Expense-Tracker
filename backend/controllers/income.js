@@ -4,7 +4,7 @@ import UserModel from "../models/UserModel.js";
 // Add Income
 export const addIncome = async (req, res) => {
     const { title, amount, category, description, date } = req.body;
-    const userId = req.userId; // Get user ID from request
+    const userId = req.userId; 
 
     try {
         // Validations
@@ -36,7 +36,7 @@ export const addIncome = async (req, res) => {
 
 // Get Incomes
 export const getIncomes = async (req, res) => {
-    const userId = req.userId; // Get user ID from request
+    const userId = req.userId;
 
     try {
         const incomes = await IncomeModel.find({ user: userId }).sort({ createdAt: -1 });

@@ -3,7 +3,7 @@ import ExpenseModel from "../models/ExpenseModel.js";
 // Add Expense
 export const addExpense = async (req, res) => {
     const { title, amount, category, description, date } = req.body;
-    const userId = req.userId; // Get user ID from request
+    const userId = req.userId;
 
     try {
         // Validations
@@ -20,7 +20,7 @@ export const addExpense = async (req, res) => {
             category,
             description,
             date,
-            user: userId // Assign user ID to expense
+            user: userId
         });
 
         await expense.save();
@@ -32,7 +32,7 @@ export const addExpense = async (req, res) => {
 
 // Get Expenses
 export const getExpenses = async (req, res) => {
-    const userId = req.userId; // Get user ID from request
+    const userId = req.userId;
 
     try {
         const expenses = await ExpenseModel.find({ user: userId }).sort({ createdAt: -1 });        

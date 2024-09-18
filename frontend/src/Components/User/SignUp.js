@@ -15,9 +15,9 @@ function SignUp() {
             setDisplayError(error);
             const timer = setTimeout(() => {
                 setDisplayError('');
-                setError(''); // Clear the global error as well
+                setError(''); 
             }, 3000);
-            return () => clearTimeout(timer); // Clean up the timer
+            return () => clearTimeout(timer); 
         }
     }, [error, setError]);
 

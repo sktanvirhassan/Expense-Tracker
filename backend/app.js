@@ -16,11 +16,11 @@ const PORT = process.env.PORT
 //middlewares
 app.use(json())
 app.use(cors({
-    origin: '*', // Adjust this to only allow specific origins in production
+    origin: '*',
 }));
 
 //routes
-// readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
+
 app.use("/api/v1/transections",transectionRoute)
 app.use("/api/v1/users",userRoute)
 
