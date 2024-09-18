@@ -4,8 +4,10 @@ import { useGlobalContext } from '../../context/globalContext.js';
 
 function AllTransactions() {
     const {transactionHistory} = useGlobalContext()
+    
 
     const [...history] = transactionHistory()
+    
 
     return (
         <HistoryStyled>

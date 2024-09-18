@@ -155,7 +155,7 @@ export const GlobalProvider = ({ children }) => {
     const transactionHistory = () => {
         const history = [...incomes, ...expenses];
         history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        return history.slice(0, 3);
+        return history;
     };
 
     return (

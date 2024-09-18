@@ -5,11 +5,12 @@ import { useGlobalContext } from '../context/globalContext';
 function History() {
     const {transactionHistory} = useGlobalContext()
 
-    const [...history] = transactionHistory()
+    const [...history] = transactionHistory().slice(0, 4)
 
     return (
         <HistoryStyled>
-            <h2>Recent History</h2>
+           <div className='main-div'>
+           <h2>Recent History</h2>
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
                 return (
@@ -30,11 +31,19 @@ function History() {
                     </div>
                 )
             })}
+           </div>
         </HistoryStyled>
     )
 }
 
 const HistoryStyled = styled.div`
+.main-div{
+background: #FCF6F9;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+    border-radius: 20px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -48,6 +57,8 @@ const HistoryStyled = styled.div`
         justify-content: space-between;
         align-items: center;
     }
+}
+    
 `;
 
 export default History
